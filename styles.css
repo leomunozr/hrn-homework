@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box; }
+
+html, body {
+  padding: 0;
+  margin: 0; }
+
+.top-menu {
+  background-color: #000;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  height: 75px;
+  justify-content: space-between;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  width: 100vw; }
+  .top-menu__logo {
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 2rem; }
+  .top-menu__items {
+    color: #fff;
+    display: flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    justify-content: space-between;
+    list-style: none;
+    text-transform: uppercase;
+    width: 700px; }
+    .top-menu__items__item--noUpperCase {
+      text-transform: none; }
+    .top-menu__items__item--active, .top-menu__items__item:hover {
+      color: yellowgreen; }
+  .top-menu__button {
+    background-color: yellowgreen;
+    border: none;
+    color: #fff;
+    height: 45px;
+    text-transform: uppercase;
+    width: 220px; }
+    .top-menu__button:hover {
+      color: yellowgreen;
+      background-color: #fff; }
+
+.landing {
+  background: url("./images/bg-landing.jpg") center center no-repeat;
+  background-size: cover;
+  height: calc(100vh - 75px);
+  margin-top: 75px; }
+  .landing__title {
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2rem;
+    text-shadow: #000 1px 1px;
+    width: 100vw; }
+    .landing__title--big {
+      font-size: 3.5rem; }
+  .landing__featuring {
+    bottom: 0;
+    color: #fff;
+    display: flex;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    justify-content: space-between;
+    position: absolute;
+    width: 100vw; }
+    .landing__featuring__something {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      padding: 0 40px; }
+      .landing__featuring__something__intro {
+        font-size: 1.1rem; }
+      .landing__featuring__something__person {
+        font-size: 1.5rem;
+        font-weight: bold; }
+  .landing__sponsors {
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    width: 100vw; }
+    .landing__sponsors__items {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      width: 50vw; }
+      .landing__sponsors__items__img {
+        height: 25px; }
