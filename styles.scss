@@ -1,3 +1,32 @@
+@mixin button-raw {
+  border: none;
+  cursor: pointer;
+  height: 45px;
+  text-transform: uppercase;
+  transition: all 0.2s ease-in-out;
+  width: 220px;
+}
+@mixin button-primary {
+  @include button-raw;
+  background-color: yellowgreen;
+  color: #fff;
+
+  &:hover {
+    background-color: #fff;
+    color: yellowgreen;
+  }
+}
+@mixin button-secondary {
+  @include button-raw;
+  background-color: #fff;
+  color: yellowgreen;
+
+  &:hover {
+    background-color: yellowgreen;
+    color: #fff;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -15,7 +44,8 @@ html, body {
   padding: 20px;
   position: fixed;
   top:0;
-  width: 100vw;
+  width: 100%;
+  z-index: 1;
 
   &__logo {
     color: #fff;
@@ -25,6 +55,7 @@ html, body {
 
   &__items {
     color: #fff;
+    cursor: pointer;
     display: flex;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     justify-content: space-between;
@@ -44,37 +75,55 @@ html, body {
   }
 
   &__button {
-    background-color: yellowgreen;
-    border: none;
-    color: #fff;
-    height: 45px;
-    text-transform: uppercase;
-    width: 220px;
-
-    &:hover {
-      color: yellowgreen;
-      background-color: #fff;
-    }
+    @include button-primary;
   }
 }
 
 .landing {
-  background: url('./images/bg-landing.jpg') center center no-repeat;
+  align-content: center;
+  background: url('./images/bg-landing.jpg') center top no-repeat;
   background-size: cover;
-  height: calc(100vh - 75px);
-  margin-top: 75px;
+  display: flex;
+  flex-direction: column;
+  height: 108vh;
+  justify-content: space-around;
 
   &__title {
+    align-items: center;
     color: white;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 2rem;
+    font-size: 3rem;
     text-shadow: #000 1px 1px;
-    width: 100vw;
+    width: 100%;
 
     &--big {
-      font-size: 3.5rem;
+      font-size: 8rem;
+    }
+  }
+
+  &__central {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__text {
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    &__buttons {
+      &__request {
+        @include button-secondary;
+      }
+      &__get {
+        @include button-primary;
+      }
     }
   }
 
@@ -85,7 +134,7 @@ html, body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     justify-content: space-between;
     position: absolute;
-    width: 100vw;
+    width: 100%;
 
     &__something {
       align-items: center;
@@ -109,7 +158,7 @@ html, body {
     bottom: 0;
     display: flex;
     justify-content: center;
-    width: 100vw;
+    width: 100%;
 
     &__items {
       align-items: center;
@@ -120,6 +169,91 @@ html, body {
       &__img {
         height: 25px;
       }
+    }
+  }
+}
+
+.second {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  &__carousel {
+    display: flex;
+    justify-content: space-between;
+    margin: 80px 0;
+    width: 70vw;
+
+    &__item {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+
+      &:hover &__img img{
+        transform: scale(1.8);
+      }
+      &:hover &__tooltip {
+        transform: scaleX(1) translateY(-10px);
+      }
+
+      &__tooltip {
+        background-color: lightgray;
+        color: yellowgreen;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 0.9rem;
+        padding: 10px 50px;
+        position: absolute;
+        top: -55px;
+        transform: scaleX(0) translateY(0);
+        transition: all 0.1s ease-in-out;
+
+        &:after {
+          border-left: 7px solid transparent;
+          border-right: 7px solid transparent;
+          border-top: 12px solid lightgray;
+          content: '';
+          height: 0;
+          left: 50%;
+          margin-left: -7px;
+          position: absolute;
+          top: 100%;
+          width: 0;
+        }
+      }
+
+      &__img {
+        display: flex;
+
+        & img {
+          max-height: 30px;
+          transition: all 0.1s ease-out;
+          width: 30px;
+        }
+      }
+    }
+  }
+  &__text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 25px;
+    text-align: center;
+    width: 60%;
+
+    &__title {
+      color: yellowgreen;
+      font-size: 2rem;
+      text-transform: uppercase;
+    }
+  }
+
+  &__buttons {
+    margin: 50px 0;
+
+    &__join, &__trailer {
+      @include button-primary;
+      border: solid 1px yellowgreen;
     }
   }
 }
