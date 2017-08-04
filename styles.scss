@@ -1,30 +1,23 @@
-@mixin button-raw {
+@mixin button-raw ($primary, $secondary) {
+  background-color: $primary;
   border: none;
+  color: $secondary;
   cursor: pointer;
   height: 45px;
   text-transform: uppercase;
   transition: all 0.2s ease-in-out;
   width: 220px;
+
+  &:hover {
+    background-color: $secondary;
+    color: $primary;
+  }
 }
 @mixin button-primary {
-  @include button-raw;
-  background-color: yellowgreen;
-  color: #fff;
-
-  &:hover {
-    background-color: #fff;
-    color: yellowgreen;
-  }
+  @include button-raw(yellowgreen, #fff);
 }
 @mixin button-secondary {
-  @include button-raw;
-  background-color: #fff;
-  color: yellowgreen;
-
-  &:hover {
-    background-color: yellowgreen;
-    color: #fff;
-  }
+  @include button-raw(#fff, yellowgreen);
 }
 
 * {
@@ -78,7 +71,6 @@ html, body {
     @include button-primary;
   }
 }
-
 .landing {
   align-content: center;
   background: url('./images/bg-landing.jpg') center top no-repeat;
@@ -172,7 +164,6 @@ html, body {
     }
   }
 }
-
 .second {
   align-items: center;
   display: flex;
@@ -254,6 +245,68 @@ html, body {
     &__join, &__trailer {
       @include button-primary;
       border: solid 1px yellowgreen;
+    }
+  }
+}
+.download {
+  background: url('images/bg-monster.jpg') center center no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 40px 10px;
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+
+    &__phones__img{
+      height: 250px;
+    }
+
+    &__text {
+      text-align: center;
+
+      & h3 {
+        font-size: 2rem;
+        text-transform: uppercase;
+      }
+      & p {
+        line-height: 25px;
+      }
+    }
+
+    &__stores {
+      &__img {
+        margin: 0 15px;
+        width: 120px;
+      }
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+
+    &__img {
+      width: 100%;
+    }
+
+    &__button {
+      @include button-raw(lightgray,#000);
+      border: solid 1px lightgray;
+      margin-top: 30px;
+
+      &:hover {
+        background-color: transparent;
+      }
     }
   }
 }
