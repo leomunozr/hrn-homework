@@ -5,7 +5,7 @@ html, body {
   padding: 0;
   margin: 0; }
 
-.top-menu {
+.top {
   background-color: #000;
   align-items: center;
   display: flex;
@@ -17,56 +17,62 @@ html, body {
   top: 0;
   width: 100%;
   z-index: 1; }
-  .top-menu__logo {
-    color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 2rem; }
-  .top-menu__items {
-    color: #fff;
+  .top__logo {
     cursor: pointer;
+    width: 245px; }
+  .top__menu {
+    align-items: center;
+    color: #fff;
     display: flex;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     justify-content: space-between;
-    list-style: none;
-    text-transform: uppercase;
-    width: 700px; }
-    .top-menu__items__item--noUpperCase {
-      text-transform: none; }
-    .top-menu__items__item--active, .top-menu__items__item:hover {
-      color: yellowgreen; }
-  .top-menu__button {
-    border: none;
+    width: calc(100% - 20px - 250px - 20px); }
+    .top__menu__item {
+      cursor: pointer;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-transform: uppercase; }
+      .top__menu__item--noUpperCase {
+        text-transform: none; }
+      .top__menu__item--active, .top__menu__item:hover {
+        color: yellowgreen; }
+    .top__menu__button {
+      background-color: yellowgreen;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      height: 40px;
+      text-transform: uppercase;
+      transition: all 0.2s ease-in-out;
+      width: 200px; }
+      .top__menu__button:hover {
+        background-color: #fff;
+        color: yellowgreen; }
+  .top__bars {
+    color: white;
     cursor: pointer;
-    height: 45px;
-    text-transform: uppercase;
-    transition: all 0.2s ease-in-out;
-    width: 220px;
-    background-color: yellowgreen;
-    color: #fff; }
-    .top-menu__button:hover {
-      background-color: #fff;
-      color: yellowgreen; }
+    display: none;
+    font-size: 3rem; }
 
 .landing {
-  align-content: center;
+  align-items: center;
   background: url("./images/bg-landing.jpg") center top no-repeat;
   background-size: cover;
   display: flex;
   flex-direction: column;
-  height: 108vh;
-  justify-content: space-around; }
+  height: 52vw;
+  justify-content: space-around;
+  position: relative; }
   .landing__title {
-    align-items: center;
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 3rem;
-    text-shadow: #000 1px 1px;
-    width: 100%; }
+    font-size: 2.5rem;
+    justify-content: center;
+    text-shadow: 1px 1px 5px #000; }
     .landing__title--big {
-      font-size: 8rem; }
+      font-size: 6rem;
+      left: -68px;
+      position: relative; }
   .landing__central {
     display: flex;
     flex-direction: column;
@@ -78,62 +84,63 @@ html, body {
       font-size: 2rem;
       font-weight: bold;
       text-transform: uppercase; }
-    .landing__central__buttons__request {
-      border: none;
-      cursor: pointer;
-      height: 45px;
-      text-transform: uppercase;
-      transition: all 0.2s ease-in-out;
-      width: 220px;
-      background-color: #fff;
-      color: yellowgreen; }
-      .landing__central__buttons__request:hover {
-        background-color: yellowgreen;
-        color: #fff; }
-    .landing__central__buttons__get {
-      border: none;
-      cursor: pointer;
-      height: 45px;
-      text-transform: uppercase;
-      transition: all 0.2s ease-in-out;
-      width: 220px;
-      background-color: yellowgreen;
-      color: #fff; }
-      .landing__central__buttons__get:hover {
+    .landing__central__buttons {
+      padding: 10px 0 50px; }
+      .landing__central__buttons__request {
         background-color: #fff;
-        color: yellowgreen; }
+        border: none;
+        color: yellowgreen;
+        cursor: pointer;
+        height: 40px;
+        text-transform: uppercase;
+        transition: all 0.2s ease-in-out;
+        width: 200px;
+        margin-right: 10px; }
+        .landing__central__buttons__request:hover {
+          background-color: yellowgreen;
+          color: #fff; }
+      .landing__central__buttons__get {
+        background-color: yellowgreen;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        height: 40px;
+        text-transform: uppercase;
+        transition: all 0.2s ease-in-out;
+        width: 200px;
+        margin: 0 10px; }
+        .landing__central__buttons__get:hover {
+          background-color: #fff;
+          color: yellowgreen; }
   .landing__featuring {
-    bottom: 0;
+    bottom: 4vw;
     color: #fff;
     display: flex;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     justify-content: space-between;
     position: absolute;
     width: 100%; }
-    .landing__featuring__something {
+    .landing__featuring__person {
       align-items: center;
       display: flex;
       flex-direction: column;
-      padding: 0 40px; }
-      .landing__featuring__something__intro {
-        font-size: 1.1rem; }
-      .landing__featuring__something__person {
-        font-size: 1.5rem;
+      padding: 0 2.5vw; }
+      .landing__featuring__person__intro {
+        font-size: 1.3vw; }
+      .landing__featuring__person__name {
+        font-size: 2vw;
         font-weight: bold; }
   .landing__sponsors {
     align-items: center;
     position: absolute;
-    bottom: 0;
+    bottom: 4vw;
     display: flex;
     justify-content: center;
     width: 100%; }
     .landing__sponsors__items {
-      align-items: center;
-      display: flex;
-      justify-content: space-between;
-      width: 50vw; }
-      .landing__sponsors__items__img {
-        height: 25px; }
+      margin: 0 1vw;
+      max-height: 2vw;
+      max-width: 12vw; }
 
 .second {
   align-items: center;
@@ -142,29 +149,54 @@ html, body {
   justify-content: space-around; }
   .second__carousel {
     display: flex;
-    justify-content: space-between;
-    margin: 80px 0;
-    width: 70vw; }
+    justify-content: center;
+    margin: 80px 0 40px;
+    width: 100%; }
+    .second__carousel__item:nth-of-type(1) {
+      color: yellowgreen; }
+    .second__carousel__item:nth-of-type(2) {
+      color: royalblue; }
+    .second__carousel__item:nth-of-type(3) {
+      color: sienna; }
+    .second__carousel__item:nth-of-type(4) {
+      color: teal; }
+    .second__carousel__item:nth-of-type(5) {
+      color: purple; }
+    .second__carousel__item:nth-of-type(6) {
+      color: darkcyan; }
+    .second__carousel__item:nth-of-type(7) {
+      color: green; }
+    .second__carousel__item:nth-of-type(8) {
+      color: olivedrab; }
+    .second__carousel__item:nth-of-type(9) {
+      color: brown; }
+    .second__carousel__item:nth-of-type(10) {
+      color: deeppink; }
+    .second__carousel__item:nth-of-type(11) {
+      color: forestgreen; }
+    .second__carousel__item:nth-of-type(12) {
+      color: dodgerblue; }
+    .second__carousel__item:nth-of-type(13) {
+      color: steelblue; }
+    .second__carousel__item:nth-of-type(14) {
+      color: darkkhaki; }
+    .second__carousel__item:nth-of-type(15) {
+      color: crimson; }
     .second__carousel__item {
       align-items: center;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      margin: 0 1.2vw;
       position: relative; }
-      .second__carousel__item:hover .second__carousel__item__img img {
-        transform: scale(1.8); }
-      .second__carousel__item:hover .second__carousel__item__tooltip {
-        transform: scaleX(1) translateY(-10px); }
       .second__carousel__item__tooltip {
         background-color: lightgray;
-        color: yellowgreen;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 0.9rem;
         padding: 10px 50px;
         position: absolute;
         top: -55px;
         transform: scaleX(0) translateY(0);
-        transition: all 0.1s ease-in-out; }
+        transition: all 0.2s ease-out; }
         .second__carousel__item__tooltip:after {
           border-left: 7px solid transparent;
           border-right: 7px solid transparent;
@@ -180,13 +212,17 @@ html, body {
         display: flex; }
         .second__carousel__item__img img {
           max-height: 30px;
-          transition: all 0.1s ease-out;
+          transition: all 0.2s ease-in;
           width: 30px; }
+      .second__carousel__item:hover .second__carousel__item__img img {
+        transform: scale(1.8); }
+      .second__carousel__item:hover .second__carousel__item__tooltip {
+        transform: scaleX(1) translateY(-10px); }
   .second__text {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 25px;
     text-align: center;
-    width: 60%; }
+    width: 50vw; }
     .second__text__title {
       color: yellowgreen;
       font-size: 2rem;
@@ -194,15 +230,83 @@ html, body {
   .second__buttons {
     margin: 50px 0; }
     .second__buttons__join, .second__buttons__trailer {
+      background-color: yellowgreen;
       border: none;
+      color: #fff;
       cursor: pointer;
-      height: 45px;
+      height: 40px;
       text-transform: uppercase;
       transition: all 0.2s ease-in-out;
-      width: 220px;
-      background-color: yellowgreen;
-      color: #fff;
-      border: solid 1px yellowgreen; }
+      width: 200px;
+      border: solid 1px yellowgreen;
+      margin: 0 10px; }
       .second__buttons__join:hover, .second__buttons__trailer:hover {
         background-color: #fff;
         color: yellowgreen; }
+
+.download {
+  background: url("images/bg-monster.jpg") center center no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 3vw 10px; }
+  .download__left {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 600px; }
+    .download__left__phones__img {
+      height: 18vw; }
+    .download__left__text {
+      text-align: center; }
+      .download__left__text h3 {
+        font-size: 2rem;
+        text-transform: uppercase; }
+      .download__left__text p {
+        line-height: 28px; }
+    .download__left__stores__img {
+      margin: 0 15px;
+      width: 140px; }
+  .download__right {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 40px;
+    width: 600px; }
+    .download__right__img {
+      width: 100%; }
+    .download__right__button {
+      background-color: lightgray;
+      border: none;
+      color: #000;
+      cursor: pointer;
+      height: 40px;
+      text-transform: uppercase;
+      transition: all 0.2s ease-in-out;
+      width: 200px;
+      border: solid 1px lightgray;
+      margin-top: 30px; }
+      .download__right__button:hover {
+        background-color: #000;
+        color: lightgray; }
+      .download__right__button:hover {
+        background-color: transparent; }
+
+@media (max-width: 1200px) {
+  .top__menu {
+    display: none; }
+  .top__bars {
+    display: inline; }
+  .second__text {
+    width: 75vw; }
+  .download__left {
+    width: 50vw; }
+    .download__left__phones__img {
+      height: 20vw; }
+  .download__right {
+    padding-right: 10px;
+    width: 50vw; } }

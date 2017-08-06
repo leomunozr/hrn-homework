@@ -3,10 +3,10 @@
   border: none;
   color: $secondary;
   cursor: pointer;
-  height: 45px;
+  height: 40px;
   text-transform: uppercase;
   transition: all 0.2s ease-in-out;
-  width: 220px;
+  width: 200px;
 
   &:hover {
     background-color: $secondary;
@@ -19,6 +19,7 @@
 @mixin button-secondary {
   @include button-raw(#fff, yellowgreen);
 }
+$tooltip-colors: yellowgreen royalblue sienna teal purple darkcyan green olivedrab brown deeppink forestgreen dodgerblue steelblue darkkhaki crimson;
 
 * {
   box-sizing: border-box;
@@ -42,19 +43,19 @@ html, body {
 
   &__logo {
     cursor: pointer;
-    height: 45px;
+    width: 245px;
   }
   &__menu {
+    align-items: center;
     color: #fff;
-    cursor: pointer;
     display: flex;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     justify-content: space-between;
-    list-style: none;
-    text-transform: uppercase;
-    width: 700px;
+    width: calc(100% - 20px - 250px - 20px);
 
     &__item {
+      cursor: pointer;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-transform: uppercase;
 
       &--noUpperCase{
         text-transform: none;
@@ -63,33 +64,41 @@ html, body {
         color: yellowgreen;
       }
     }
+    &__button {
+      @include button-primary;
+    }
   }
-  &__button {
-    @include button-primary;
+
+  &__bars {
+    color: white;
+    cursor: pointer;
+    display:none;
+    font-size: 3rem;
   }
 }
 .landing {
-  align-content: center;
+  align-items: center;
   background: url('./images/bg-landing.jpg') center top no-repeat;
   background-size: cover;
   display: flex;
   flex-direction: column;
-  height: 108vh;
+  height: 52vw;
   justify-content: space-around;
+  position: relative;
 
   &__title {
-    align-items: center;
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 3rem;
-    text-shadow: #000 1px 1px;
-    width: 100%;
+    font-size: 2.5rem;
+    justify-content: center;
+    text-shadow: 1px 1px 5px #000;
 
     &--big {
-      font-size: 8rem;
+      font-size: 6rem;
+      left: -68px;
+      position: relative;
     }
   }
 
@@ -107,17 +116,21 @@ html, body {
       text-transform: uppercase;
     }
     &__buttons {
+      padding: 10px 0 50px;
+
       &__request {
         @include button-secondary;
+        margin-right: 10px;
       }
       &__get {
         @include button-primary;
+        margin: 0 10px;
       }
     }
   }
 
   &__featuring {
-    bottom: 0;
+    bottom: 4vw;
     color: #fff;
     display: flex;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -125,17 +138,17 @@ html, body {
     position: absolute;
     width: 100%;
 
-    &__something {
+    &__person {
       align-items: center;
       display: flex;
       flex-direction: column;
-      padding: 0 40px;
+      padding: 0 2.5vw;
 
       &__intro {
-        font-size: 1.1rem;
+        font-size: 1.3vw;
       }
-      &__person {
-        font-size: 1.5rem;
+      &__name {
+        font-size: 2vw;
         font-weight: bold;
       }
     }
@@ -144,20 +157,15 @@ html, body {
   &__sponsors {
     align-items: center;
     position: absolute;
-    bottom: 0;
+    bottom: 4vw;
     display: flex;
     justify-content: center;
     width: 100%;
 
     &__items {
-      align-items: center;
-      display: flex;
-      justify-content: space-between;
-      width: 50vw;
-
-      &__img {
-        height: 25px;
-      }
+      margin: 0 1vw;
+      max-height: 2vw;
+      max-width: 12vw;
     }
   }
 }
@@ -169,34 +177,32 @@ html, body {
 
   &__carousel {
     display: flex;
-    justify-content: space-between;
-    margin: 80px 0;
-    width: 70vw;
+    justify-content: center;
+    margin: 80px 0 40px;
+    width: 100%;
+  
+    @for $i from 1 through length($tooltip-colors) {
+      &__item:nth-of-type(#{$i}) {
+        color: nth($tooltip-colors, $i);
+      }
+    }
 
     &__item {
       align-items: center;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      margin: 0 1.2vw;
       position: relative;
-
-      &:hover &__img img{
-        transform: scale(1.8);
-      }
-      &:hover &__tooltip {
-        transform: scaleX(1) translateY(-10px);
-      }
 
       &__tooltip {
         background-color: lightgray;
-        color: yellowgreen;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         font-size: 0.9rem;
         padding: 10px 50px;
         position: absolute;
         top: -55px;
         transform: scaleX(0) translateY(0);
-        transition: all 0.1s ease-in-out;
+        transition: all 0.2s ease-out;
 
         &:after {
           border-left: 7px solid transparent;
@@ -217,9 +223,16 @@ html, body {
 
         & img {
           max-height: 30px;
-          transition: all 0.1s ease-out;
+          transition: all 0.2s ease-in;
           width: 30px;
         }
+      }
+
+      &:hover &__img img{
+        transform: scale(1.8);
+      }
+      &:hover &__tooltip {
+        transform: scaleX(1) translateY(-10px);
       }
     }
   }
@@ -227,7 +240,7 @@ html, body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 25px;
     text-align: center;
-    width: 60%;
+    width: 50vw;
 
     &__title {
       color: yellowgreen;
@@ -241,7 +254,9 @@ html, body {
 
     &__join, &__trailer {
       @include button-primary;
+      
       border: solid 1px yellowgreen;
+      margin: 0 10px;
     }
   }
 }
@@ -252,17 +267,17 @@ html, body {
   justify-content: center;
   align-items: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding: 40px 10px;
+  padding: 3vw 10px;
 
   &__left {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    width: 50%;
+    width: 600px;
 
     &__phones__img{
-      height: 250px;
+      height: 18vw;
     }
 
     &__text {
@@ -273,24 +288,25 @@ html, body {
         text-transform: uppercase;
       }
       & p {
-        line-height: 25px;
+        line-height: 28px;
       }
     }
 
     &__stores {
       &__img {
         margin: 0 15px;
-        width: 120px;
+        width: 140px;
       }
     }
   }
 
   &__right {
+    align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    width: 50%;
+    padding-right: 40px;
+    width: 600px;
 
     &__img {
       width: 100%;
@@ -304,6 +320,35 @@ html, body {
       &:hover {
         background-color: transparent;
       }
+    }
+  }
+}
+
+@media (max-width:1200px) {
+  .top {
+    &__menu {
+      display:none;
+    }
+    &__bars {
+      display: inline;
+    }
+  }
+  .second {
+    &__text {
+      width: 75vw;
+    }
+  }
+  .download {
+    &__left {
+      width: 50vw;
+
+      &__phones__img{
+        height: 20vw;
+      }
+    }
+    &__right {
+      padding-right: 10px;
+      width: 50vw;
     }
   }
 }
