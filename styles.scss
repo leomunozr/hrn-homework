@@ -330,7 +330,7 @@ html, body {
     }
   }
 }
-
+/* small desktops*/
 @media (max-width:1200px) {
   .top {
     &__menu {
@@ -359,8 +359,8 @@ html, body {
     }
   }
 }
-
-@media (max-width: 768px) {
+/* tablets */
+@media (max-width: 870px) {
   .top {
     &__logo {
       width: 27vw;
@@ -451,7 +451,7 @@ html, body {
     }
   }
 }
-
+/* phones */
 @media (max-width: 640px) {
   .top {
     &__logo {
