@@ -54,8 +54,7 @@ html, body {
 
 .landing {
   align-items: center;
-  background: url("./images/bg-landing.jpg") center top no-repeat;
-  background-size: cover;
+  background: url("./images/bg-landing.jpg") center top/cover no-repeat;
   display: flex;
   flex-direction: column;
   height: 52vw;
@@ -95,7 +94,7 @@ html, body {
         text-transform: uppercase;
         transition: all 0.2s ease-in-out;
         width: 200px;
-        margin-right: 10px; }
+        margin-right: 1.5vw; }
         .landing__central__buttons__request:hover {
           background-color: yellowgreen;
           color: #fff; }
@@ -108,7 +107,7 @@ html, body {
         text-transform: uppercase;
         transition: all 0.2s ease-in-out;
         width: 200px;
-        margin: 0 10px; }
+        margin-left: 1.5vw; }
         .landing__central__buttons__get:hover {
           background-color: #fff;
           color: yellowgreen; }
@@ -134,13 +133,18 @@ html, body {
     align-items: center;
     position: absolute;
     bottom: 4vw;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     width: 100%; }
-    .landing__sponsors__items {
+    .landing__sponsors__item {
       margin: 0 1vw;
       max-height: 2vw;
       max-width: 12vw; }
+      .landing__sponsors__item--desktop {
+        display: inline; }
+      .landing__sponsors__item--mobile {
+        display: none; }
 
 .second {
   align-items: center;
@@ -245,8 +249,7 @@ html, body {
         color: yellowgreen; }
 
 .download {
-  background: url("images/bg-monster.jpg") center center no-repeat;
-  background-size: cover;
+  background: url("images/bg-monster.jpg") center center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -268,8 +271,9 @@ html, body {
       .download__left__text p {
         line-height: 28px; }
     .download__left__stores__img {
+      cursor: pointer;
       margin: 0 15px;
-      width: 140px; }
+      width: 128px; }
   .download__right {
     align-items: center;
     display: flex;
@@ -310,3 +314,130 @@ html, body {
   .download__right {
     padding-right: 10px;
     width: 50vw; } }
+
+@media (max-width: 768px) {
+  .top__logo {
+    width: 27vw; }
+  .landing {
+    background-position: bottom; }
+    .landing__title {
+      font-size: 1.5rem; }
+      .landing__title--big {
+        font-size: 4rem;
+        left: -30px; }
+    .landing__central {
+      bottom: 0;
+      position: absolute; }
+      .landing__central__text {
+        font-size: 4vw; }
+      .landing__central__buttons {
+        padding: 0; }
+    .landing__featuring {
+      top: 11vw;
+      padding: 0 2vw; }
+      .landing__featuring__person__intro {
+        font-size: 0.8rem; }
+      .landing__featuring__person__name {
+        font-size: 1rem; }
+    .landing__sponsors {
+      align-content: center;
+      background-color: black;
+      flex-wrap: wrap;
+      height: 27vw;
+      padding: 0 20vw;
+      top: 52vw; }
+      .landing__sponsors__item {
+        margin: 2vw;
+        max-height: 3.5vw;
+        max-width: 100%; }
+  .second {
+    margin-top: 27vw; }
+    .second__carousel {
+      display: none; }
+    .second__text {
+      padding: 20px;
+      width: 100%; }
+    .second__buttons {
+      margin: 15px 0; }
+      .second__buttons__join {
+        background-color: #fff;
+        color: yellowgreen; }
+        .second__buttons__join:hover {
+          background-color: yellowgreen;
+          color: #fff; }
+  .download {
+    flex-direction: column; }
+    .download__left {
+      width: 85vw; }
+    .download__right {
+      margin-top: 3vw; } }
+
+@media (max-width: 640px) {
+  .top__logo {
+    width: 50vw; }
+  .landing {
+    background: #000 url("images/bg-landing-mobile.jpg") center top/contain no-repeat;
+    height: 173vw; }
+    .landing__title {
+      display: none; }
+    .landing__central {
+      bottom: 15vw;
+      display: flex; }
+      .landing__central__text {
+        font-size: 7vw; }
+      .landing__central__buttons {
+        display: flex;
+        flex-direction: column;
+        margin-top: 3vw; }
+        .landing__central__buttons__request, .landing__central__buttons__get {
+          margin: 15px; }
+        .landing__central__buttons__request {
+          background-color: #fff;
+          color: yellowgreen; }
+          .landing__central__buttons__request__hover {
+            background-color: yellowgreen;
+            color: #fff; }
+    .landing__featuring {
+      bottom: 70vw;
+      top: auto; }
+      .landing__featuring__person__intro {
+        font-size: 3.8vw; }
+      .landing__featuring__person__name {
+        font-size: 4.3vw; }
+    .landing__sponsors {
+      height: 50vw;
+      justify-content: space-between;
+      padding: 5vw 12vw;
+      top: 160vw; }
+      .landing__sponsors__item {
+        margin: 2vw;
+        max-height: 9vw;
+        max-width: 34vw; }
+        .landing__sponsors__item--desktop {
+          display: none; }
+        .landing__sponsors__item--mobile {
+          display: inline; }
+  .second {
+    margin-top: 37vw; }
+    .second__text {
+      padding: 0 20px; }
+      .second__text__title {
+        font-size: 2rem; }
+    .second__buttons {
+      display: flex;
+      flex-direction: column;
+      height: 100px;
+      justify-content: space-between; }
+  .download {
+    padding: 5vw 10px; }
+    .download__left {
+      width: 100%; }
+      .download__left__phones__img {
+        height: 42vw; }
+      .download__left__text h3 {
+        font-size: 1.5rem; }
+      .download__left__stores__img {
+        margin: 0 3vw; }
+    .download__right {
+      padding: 0 5vw;
+      width: 100vw; } }

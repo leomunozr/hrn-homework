@@ -78,8 +78,7 @@ html, body {
 }
 .landing {
   align-items: center;
-  background: url('./images/bg-landing.jpg') center top no-repeat;
-  background-size: cover;
+  background: url('./images/bg-landing.jpg') center top / cover no-repeat;
   display: flex;
   flex-direction: column;
   height: 52vw;
@@ -120,11 +119,11 @@ html, body {
 
       &__request {
         @include button-secondary;
-        margin-right: 10px;
+        margin-right: 1.5vw;
       }
       &__get {
         @include button-primary;
-        margin: 0 10px;
+        margin-left: 1.5vw;
       }
     }
   }
@@ -158,14 +157,22 @@ html, body {
     align-items: center;
     position: absolute;
     bottom: 4vw;
+    cursor: pointer;
     display: flex;
     justify-content: center;
     width: 100%;
 
-    &__items {
+    &__item {
       margin: 0 1vw;
       max-height: 2vw;
       max-width: 12vw;
+
+      &--desktop {
+        display: inline;
+      }
+      &--mobile {
+        display: none;
+      }
     }
   }
 }
@@ -180,7 +187,7 @@ html, body {
     justify-content: center;
     margin: 80px 0 40px;
     width: 100%;
-  
+
     @for $i from 1 through length($tooltip-colors) {
       &__item:nth-of-type(#{$i}) {
         color: nth($tooltip-colors, $i);
@@ -254,15 +261,14 @@ html, body {
 
     &__join, &__trailer {
       @include button-primary;
-      
+
       border: solid 1px yellowgreen;
       margin: 0 10px;
     }
   }
 }
 .download {
-  background: url('images/bg-monster.jpg') center center no-repeat;
-  background-size: cover;
+  background: url('images/bg-monster.jpg') center center / cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -294,8 +300,9 @@ html, body {
 
     &__stores {
       &__img {
+        cursor: pointer;
         margin: 0 15px;
-        width: 140px;
+        width: 128px;
       }
     }
   }
@@ -349,6 +356,209 @@ html, body {
     &__right {
       padding-right: 10px;
       width: 50vw;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .top {
+    &__logo {
+      width: 27vw;
+    }
+  }
+  .landing {
+    background-position: bottom;
+
+    &__title {
+      font-size: 1.5rem;
+
+      &--big {
+        font-size: 4rem;
+        left: -30px;
+      }
+    }
+    &__central {
+      bottom: 0;
+      position: absolute;
+
+      &__text{
+        font-size: 4vw;
+      }
+      &__buttons {
+        padding: 0;
+      }
+    }
+    &__featuring {
+      top: 11vw;
+      padding: 0 2vw;
+
+      &__person {
+        &__intro {
+          font-size: 0.8rem;
+        }
+        &__name {
+          font-size: 1rem;
+        }
+      }
+    }
+    &__sponsors {
+      align-content: center;
+      background-color: black;
+      flex-wrap: wrap;
+      height: 27vw;
+      padding: 0 20vw;
+      top: 52vw;
+
+      &__item {
+        margin: 2vw;
+        max-height: 3.5vw;
+        max-width: 100%;
+      }
+    }
+  }
+  .second {
+    margin-top: 27vw;
+
+    &__carousel {
+      display: none;
+    }
+    &__text {
+      padding: 20px;
+      width: 100%;
+    }
+    &__buttons {
+      margin: 15px 0;
+
+      &__join {
+        background-color: #fff;
+        color: yellowgreen;
+
+        &:hover {
+          background-color: yellowgreen;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .download {
+    flex-direction: column;
+
+    &__left {
+      width: 85vw;
+    }
+    &__right {
+      margin-top: 3vw;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .top {
+    &__logo {
+      width: 50vw;
+    }
+  }
+  .landing {
+    background: #000 url('images/bg-landing-mobile.jpg') center top / contain no-repeat;
+    height: 173vw;
+
+    &__title {
+      display: none;
+    }
+    &__central {
+      bottom: 15vw;
+      display: flex;
+
+      &__text {
+        font-size: 7vw;
+      }
+      &__buttons {
+        display: flex;
+        flex-direction: column;
+        margin-top: 3vw;
+
+        &__request, &__get {
+          margin: 15px;
+        }
+        &__request {
+          background-color: #fff;
+          color: yellowgreen;
+
+          &__hover {
+            background-color: yellowgreen;
+            color: #fff;
+          }
+        }
+      }
+    }
+    &__featuring {
+      bottom: 70vw;
+      top: auto;
+
+      &__person {
+        &__intro {
+          font-size: 3.8vw;
+        }
+        &__name {
+          font-size: 4.3vw;
+        }
+      }
+    }
+    &__sponsors {
+      height: 50vw;
+      justify-content: space-between;
+      padding: 5vw 12vw;
+      top: 160vw;
+
+      &__item {
+        margin: 2vw;
+        max-height: 9vw;
+        max-width: 34vw;
+
+        &--desktop {
+          display: none;
+        }
+        &--mobile {
+          display: inline;
+        }
+      }
+    }
+  }
+  .second {
+    margin-top: 37vw;
+
+    &__text {
+      padding: 0 20px;
+
+      &__title {
+        font-size: 2rem;
+      }
+    }
+    &__buttons {
+      display: flex;
+      flex-direction: column;
+      height: 100px;
+      justify-content: space-between;
+    }
+  }
+  .download {
+    padding: 5vw 10px;
+    &__left {
+      width: 100%;
+
+      &__phones__img {
+        height: 42vw;
+      }
+      &__text h3 {
+        font-size: 1.5rem;
+      }
+      &__stores__img {
+        margin: 0 3vw;
+      }
+    }
+    &__right {
+      padding: 0 5vw;
+      width: 100vw;
     }
   }
 }
