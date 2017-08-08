@@ -3,7 +3,7 @@
   var carousel = document.getElementsByClassName('second__carousel')[0];
   var items = carousel.children;
   var index = 0;
-  var prev = null; 
+  var prev = null;
   var animId;
 
  /* Helper functions */
@@ -27,8 +27,6 @@
     clearInterval(animId);
     if (prev) {
       items[prev].classList.remove('anim');
-      index = 0;
-      prev = null;
     }
   }
 
