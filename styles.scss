@@ -76,6 +76,82 @@ html, body {
     font-size: 3rem;
   }
 }
+.menu-screen {
+  background-color: #000;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  height: calc(100vh - 75px);
+  margin-top: 75px;
+  padding: 50px;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  transition: left 400ms ease-in;
+
+  &__item {
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    left: 100%;
+    transition: left 400ms ease-in;
+
+    &:hover, &--active {
+      color: yellowgreen;
+    }
+    &--noUpperCase {
+      text-transform: none;
+    }
+    &__subtitle {
+      font-size: 0.5rem;
+
+      &--red {
+        color: darkred;
+      }
+      &--blue {
+        color: teal;
+      }
+    }
+    &__button {
+      @include button-primary;
+      margin-top: 5px;
+    }
+  }
+
+  &--show {
+    left: 0;
+
+    .menu-screen__item {
+      left: 0;
+
+      /* Transition delay for menu items showing */
+      @for $i from 1 to 17 {
+        &:nth-child(#{$i}) {
+          transition-delay: ($i - 1) * 100 + 400ms;
+        }
+      }
+    }
+  }
+  &--hide {
+    transition-delay: 1.8s;
+    left: 100%;
+
+    /* Transition delay for menu items hiding */
+    @for $i from 16 through 1 {
+      .menu-screen__item:nth-child(#{$i}) {
+        transition-delay: (16 - $i) * 100ms;
+      }
+    }
+  }
+}
 .landing {
   align-items: center;
   background: url('./images/bg-landing.jpg') center top / cover no-repeat;

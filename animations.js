@@ -16,7 +16,6 @@
   };
   var startAnim = function() {
     animId = setInterval(function() {
-      console.log(index);
       toggleTooltip(items[index], items[prev]);
       prev = index;
       index++;
@@ -33,7 +32,6 @@
   /* Carousel events */
   Array.prototype.forEach.call(items, function(item) {
     item.addEventListener('mouseover', function() {
-      console.log('hover');
       stopAnim();
       item.classList.add('anim');
     });
@@ -45,5 +43,21 @@
 
   /* Start animation */
   startAnim();
+
+  /* Menu toggle */
+  var menuIcon = document.getElementsByClassName('top__bars')[0];
+  var menuScreen = document.getElementsByClassName('menu-screen')[0];
+  var showClass = 'menu-screen--show';
+  var hideClass = 'menu-screen--hide';
+
+  menuIcon.addEventListener('click', function() {
+    if (menuScreen.classList.contains(showClass)) {
+      menuScreen.classList.remove(showClass);
+      menuScreen.classList.add(hideClass);
+    } else {
+      menuScreen.classList.remove(hideClass);
+      menuScreen.classList.add(showClass);
+    }
+  });
 
 })()
