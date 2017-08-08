@@ -188,6 +188,7 @@ html, body {
       color: crimson; }
     .second__carousel__item {
       align-items: center;
+      cursor: pointer;
       display: flex;
       flex-direction: column;
       margin: 0 1.2vw;
@@ -218,9 +219,9 @@ html, body {
           max-height: 30px;
           transition: all 0.2s ease-in;
           width: 30px; }
-      .second__carousel__item:hover .second__carousel__item__img img {
+      .anim .second__carousel__item__img img {
         transform: scale(1.8); }
-      .second__carousel__item:hover .second__carousel__item__tooltip {
+      .anim .second__carousel__item__tooltip {
         transform: scaleX(1) translateY(-10px); }
   .second__text {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
