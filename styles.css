@@ -12,7 +12,7 @@ html, body {
   flex-wrap: wrap;
   height: 75px;
   justify-content: space-between;
-  padding: 20px;
+  padding: 20px 10vw 20px 20px;
   position: fixed;
   top: 0;
   width: 100%;
@@ -25,7 +25,7 @@ html, body {
     color: #fff;
     display: flex;
     justify-content: space-between;
-    width: calc(100% - 20px - 250px - 20px); }
+    width: 66vw; }
     .top__menu__item {
       cursor: pointer;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -65,12 +65,17 @@ html, body {
     display: flex;
     flex-direction: column;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 2.5rem;
+    font-size: 2.2vw;
     justify-content: center;
-    text-shadow: 1px 1px 5px #000; }
+    left: 4vw;
+    line-height: 3vw;
+    text-shadow: 1px 1px 5px #000;
+    top: 6vw;
+    position: relative; }
     .landing__title--big {
-      font-size: 6rem;
-      left: -68px;
+      font-size: 6vw;
+      left: -4.5vw;
+      margin-bottom: 1vw;
       position: relative; }
   .landing__central {
     display: flex;
@@ -303,10 +308,12 @@ html, body {
 
 /* small desktops*/
 @media (max-width: 1200px) {
-  .top__menu {
-    display: none; }
-  .top__bars {
-    display: inline; }
+  .top {
+    padding: 20px; }
+    .top__menu {
+      display: none; }
+    .top__bars {
+      display: inline; }
   .second__text {
     width: 75vw; }
   .download__left {
@@ -324,10 +331,11 @@ html, body {
   .landing {
     background-position: bottom; }
     .landing__title {
-      font-size: 1.5rem; }
+      font-size: 2.8vw;
+      top: -1vw; }
       .landing__title--big {
-        font-size: 4rem;
-        left: -30px; }
+        font-size: 7vw;
+        left: -5vw; }
     .landing__central {
       bottom: 0;
       position: absolute; }
@@ -339,9 +347,9 @@ html, body {
       top: 11vw;
       padding: 0 2vw; }
       .landing__featuring__person__intro {
-        font-size: 0.8rem; }
+        font-size: 1.5vw; }
       .landing__featuring__person__name {
-        font-size: 1rem; }
+        font-size: 2vw; }
     .landing__sponsors {
       align-content: center;
       background-color: black;
@@ -378,12 +386,18 @@ html, body {
 /* phones */
 @media (max-width: 640px) {
   .top__logo {
-    width: 50vw; }
+    width: 36vw; }
   .landing {
     background: #000 url("images/bg-landing-mobile.jpg") center top/contain no-repeat;
     height: 173vw; }
     .landing__title {
-      display: none; }
+      font-size: 4vw;
+      left: 32vw;
+      line-height: 6vw;
+      position: absolute;
+      top: 30vw; }
+      .landing__title--big {
+        font-size: 11vw; }
     .landing__central {
       bottom: 15vw;
       display: flex; }
