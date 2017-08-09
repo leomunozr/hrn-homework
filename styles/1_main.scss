@@ -77,7 +77,7 @@ html, body {
     text-transform: uppercase;
     flex-direction: column;
     position: relative;
-    left: 100%;
+    left: 110%;
     transition: left $menu-time ease-in;
 
     &:hover, &--active {
@@ -99,6 +99,7 @@ html, body {
     &__button {
       @include button-primary;
       margin-top: 5px;
+      width: 150px;
     }
   }
 
