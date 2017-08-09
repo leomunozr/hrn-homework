@@ -1,0 +1,96 @@
+@import './variables';
+@import './mixins';
+
+/* tablets */
+@media (max-width: 870px) {
+  .top {
+    &__logo {
+      width: 27vw;
+    }
+  }
+  .landing {
+    background-position: bottom;
+
+    &__title {
+      font-size: 2.8vw;
+      top: -1vw;
+
+      &--big {
+        font-size: 7vw;
+        left: -5vw;
+      }
+    }
+    &__central {
+      bottom: 0;
+      position: absolute;
+
+      &__text{
+        font-size: 4vw;
+      }
+      &__buttons {
+        padding: 0;
+      }
+    }
+    &__featuring {
+      top: 11vw;
+      padding: 0 2vw;
+
+      &__person {
+        &__intro {
+          font-size: 1.5vw;
+        }
+        &__name {
+          font-size: 2vw;
+        }
+      }
+    }
+    &__sponsors {
+      align-content: center;
+      background-color: black;
+      flex-wrap: wrap;
+      height: 27vw;
+      padding: 0 20vw;
+      top: 52vw;
+
+      &__item {
+        margin: 2vw;
+        max-height: 3.5vw;
+        max-width: 100%;
+      }
+    }
+  }
+  .second {
+    margin-top: 27vw;
+
+    &__carousel {
+      display: none;
+    }
+    &__text {
+      padding: 20px;
+      width: 100%;
+    }
+    &__buttons {
+      margin: 15px 0;
+
+      &__join {
+        background-color: #fff;
+        color: $primary-green;
+
+        &:hover {
+          background-color: $primary-green;
+          color: #fff;
+        }
+      }
+    }
+  }
+  .download {
+    flex-direction: column;
+
+    &__left {
+      width: 85vw;
+    }
+    &__right {
+      margin-top: 3vw;
+    }
+  }
+}

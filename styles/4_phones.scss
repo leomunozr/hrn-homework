@@ -1,0 +1,122 @@
+@import './variables';
+@import './mixins';
+
+/* phones */
+@media (max-width: 640px) {
+  .top {
+    &__logo {
+      width: 36vw;
+    }
+  }
+  .landing {
+    background: #000 url('../images/bg-landing-mobile.jpg') center top / contain no-repeat;
+    height: 173vw;
+
+    &__title {
+      font-size: 4vw;
+      left: 32vw;
+      line-height: 6vw;
+      position: absolute;
+      top: 30vw;
+
+      &--big {
+        font-size: 11vw;
+      }
+    }
+    &__central {
+      bottom: 15vw;
+      display: flex;
+
+      &__text {
+        font-size: 7vw;
+      }
+      &__buttons {
+        display: flex;
+        flex-direction: column;
+        margin-top: 3vw;
+
+        &__request, &__get {
+          margin: 15px;
+        }
+        &__request {
+          background-color: #fff;
+          color: $primary-green;
+
+          &__hover {
+            background-color: $primary-green;
+            color: #fff;
+          }
+        }
+      }
+    }
+    &__featuring {
+      bottom: 70vw;
+      top: auto;
+
+      &__person {
+        &__intro {
+          font-size: 3.8vw;
+        }
+        &__name {
+          font-size: 4.3vw;
+        }
+      }
+    }
+    &__sponsors {
+      height: 50vw;
+      justify-content: space-between;
+      padding: 5vw 12vw;
+      top: 160vw;
+
+      &__item {
+        margin: 2vw;
+        max-height: 9vw;
+        max-width: 34vw;
+
+        &--desktop {
+          display: none;
+        }
+        &--mobile {
+          display: inline;
+        }
+      }
+    }
+  }
+  .second {
+    margin-top: 37vw;
+
+    &__text {
+      padding: 0 20px;
+
+      &__title {
+        font-size: 2rem;
+      }
+    }
+    &__buttons {
+      display: flex;
+      flex-direction: column;
+      height: 100px;
+      justify-content: space-between;
+    }
+  }
+  .download {
+    padding: 5vw 10px;
+    &__left {
+      width: 100%;
+
+      &__phones__img {
+        height: 42vw;
+      }
+      &__text h3 {
+        font-size: 1.5rem;
+      }
+      &__stores__img {
+        margin: 0 3vw;
+      }
+    }
+    &__right {
+      padding: 0 5vw;
+      width: 100vw;
+    }
+  }
+}

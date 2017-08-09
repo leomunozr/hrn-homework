@@ -1,0 +1,28 @@
+/* Auxiliary mixins */
+
+@mixin flex-element($align, $justify) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+}
+@mixin button-raw ($primary, $secondary) {
+  background-color: $primary;
+  border: none;
+  color: $secondary;
+  cursor: pointer;
+  height: 40px;
+  text-transform: uppercase;
+  transition: all $button-time ease-in-out;
+  width: 200px;
+
+  &:hover {
+    background-color: $secondary;
+    color: $primary;
+  }
+}
+@mixin button-primary {
+  @include button-raw($primary-green, $secondary-button);
+}
+@mixin button-secondary {
+  @include button-raw($secondary-button, $primary-green);
+}

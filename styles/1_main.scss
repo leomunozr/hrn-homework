@@ -1,0 +1,384 @@
+@import './variables';
+@import './mixins';
+
+* {
+  box-sizing: border-box;
+}
+html, body {
+  padding: 0;
+  margin: 0;
+}
+.top {
+  @include flex-element('center', 'space-between');
+
+  background-color: #000;
+  flex-wrap: wrap;
+  height: 75px;
+  padding: 20px 10vw 20px 20px;
+  position: fixed;
+  top:0;
+  width: 100%;
+  z-index: 1;
+
+  &__logo {
+    cursor: pointer;
+    width: 245px;
+  }
+  &__menu {
+    @include flex-element('center', 'space-between');
+
+    color: #fff;
+    width: 66vw;
+
+    &__item {
+      cursor: pointer;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-transform: uppercase;
+
+      &--noUpperCase{
+        text-transform: none;
+      }
+      &--active, &:hover {
+        color: $primary-green;
+      }
+    }
+    &__button {
+      @include button-primary;
+    }
+  }
+
+  &__bars {
+    color: white;
+    cursor: pointer;
+    display:none;
+    font-size: 3rem;
+  }
+}
+.menu-screen {
+  @include flex-element('center', 'space-between');
+
+  background-color: #000;
+  color: white;
+  flex-direction: column;
+  height: calc(100vh - 75px);
+  margin-top: 75px;
+  padding: 50px;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  transition: left $menu-time ease-in;
+
+  &__item {
+    @include flex-element('center', 'center');
+
+    cursor: pointer;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    flex-direction: column;
+    position: relative;
+    left: 100%;
+    transition: left $menu-time ease-in;
+
+    &:hover, &--active {
+      color: $primary-green;
+    }
+    &--noUpperCase {
+      text-transform: none;
+    }
+    &__subtitle {
+      font-size: 0.5rem;
+
+      &--red {
+        color: darkred;
+      }
+      &--blue {
+        color: teal;
+      }
+    }
+    &__button {
+      @include button-primary;
+      margin-top: 5px;
+    }
+  }
+
+  &--show {
+    left: 0;
+
+    .menu-screen__item {
+      left: 0;
+
+      /* Transition delay for menu items showing */
+      @for $i from 1 to 17 {
+        &:nth-child(#{$i}) {
+          transition-delay: ($i - 1) * 100 + $menu-time;
+        }
+      }
+    }
+  }
+  &--hide {
+    transition-delay: 1.8s;
+    left: 100%;
+
+    /* Transition delay for menu items hiding */
+    @for $i from 16 through 1 {
+      .menu-screen__item:nth-child(#{$i}) {
+        transition-delay: (16 - $i) * 100ms;
+      }
+    }
+  }
+}
+.landing {
+  @include flex-element('center', 'space-around');
+
+  background: url('../images/bg-landing.jpg') center top / cover no-repeat;
+  flex-direction: column;
+  height: 52vw;
+  position: relative;
+
+  &__title {
+    @include flex-element('stretch', 'center');
+
+    color: white;
+    flex-direction: column;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.2vw;
+    left: 4vw;
+    line-height: 3vw;
+    text-shadow: 1px 1px 5px #000;
+    top: 6vw;
+    position: relative;
+
+    &--big {
+      font-size: 6vw;
+      left: -4.5vw;
+      margin-bottom: 1vw;
+      position: relative;
+    }
+  }
+
+  &__central {
+    @include flex-element('center', 'center');
+    
+    flex-direction: column;
+
+    &__text {
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-size: 2rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    &__buttons {
+      padding: 10px 0 50px;
+
+      &__request {
+        @include button-secondary;
+        margin-right: 1.5vw;
+      }
+      &__get {
+        @include button-primary;
+        margin-left: 1.5vw;
+      }
+    }
+  }
+
+  &__featuring {
+    @include flex-element('stretch', 'space-between');
+
+    bottom: 4vw;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    position: absolute;
+    width: 100%;
+
+    &__person {
+      @include flex-element('center', 'flex-start');
+
+      flex-direction: column;
+      padding: 0 2.5vw;
+
+      &__intro {
+        font-size: 1.3vw;
+      }
+      &__name {
+        font-size: 2vw;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &__sponsors {
+    @include flex-element('center', 'center');
+
+    position: absolute;
+    bottom: 4vw;
+    cursor: pointer;
+    width: 100%;
+
+    &__item {
+      margin: 0 1vw;
+      max-height: 2vw;
+      max-width: 12vw;
+
+      &--desktop {
+        display: inline;
+      }
+      &--mobile {
+        display: none;
+      }
+    }
+  }
+}
+.second {
+  @include flex-element('center', 'space-around');
+
+  flex-direction: column;
+
+  &__carousel {
+    @include flex-element('stretch', 'center');
+
+    margin: 80px 0 40px;
+    width: 100%;
+
+    @for $i from 1 through length($tooltip-colors) {
+      &__item:nth-of-type(#{$i}) {
+        color: nth($tooltip-colors, $i);
+      }
+    }
+
+    &__item {
+      @include flex-element('center', 'flex-start');
+
+      flex-direction: column;
+
+      cursor: pointer;
+      margin: 0 1.2vw;
+      position: relative;
+
+      &__tooltip {
+        background-color: lightgray;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 0.9rem;
+        padding: 10px 50px;
+        position: absolute;
+        top: -55px;
+        transform: scaleX(0) translateY(0);
+        transition: all $carousel-time ease-out;
+
+        &:after {
+          border-left: 7px solid transparent;
+          border-right: 7px solid transparent;
+          border-top: 12px solid lightgray;
+          content: '';
+          height: 0;
+          left: 50%;
+          margin-left: -7px;
+          position: absolute;
+          top: 100%;
+          width: 0;
+        }
+      }
+
+      &__img {
+        display: flex;
+
+        & img {
+          max-height: 30px;
+          transition: all $carousel-time ease-in;
+          width: 30px;
+        }
+      }
+
+      .anim &__img img{
+        transform: scale(1.8);
+      }
+      .anim &__tooltip {
+        transform: scaleX(1) translateY(-10px);
+      }
+    }
+  }
+  &__text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 25px;
+    text-align: center;
+    width: 50vw;
+
+    &__title {
+      color: $primary-green;
+      font-size: 2rem;
+      text-transform: uppercase;
+    }
+  }
+
+  &__buttons {
+    margin: 50px 0;
+
+    &__join, &__trailer {
+      @include button-primary;
+
+      border: solid 1px $primary-green;
+      margin: 0 10px;
+    }
+  }
+}
+.download {
+  @include flex-element('center', 'center');
+
+  background: url('../images/bg-monster.jpg') center center / cover no-repeat;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 3vw 10px;
+
+  &__left {
+    @include flex-element('center', 'center');
+
+    flex-direction: column;
+    width: 600px;
+
+    &__phones__img{
+      height: 18vw;
+    }
+
+    &__text {
+      text-align: center;
+
+      & h3 {
+        font-size: 2rem;
+        text-transform: uppercase;
+      }
+      & p {
+        line-height: 28px;
+      }
+    }
+
+    &__stores {
+      &__img {
+        cursor: pointer;
+        margin: 0 15px;
+        width: 128px;
+      }
+    }
+  }
+
+  &__right {
+    @include flex-element('center', 'center');
+    
+    flex-direction: column;
+    padding-right: 40px;
+    width: 600px;
+
+    &__img {
+      width: 100%;
+    }
+
+    &__button {
+      @include button-raw(lightgray,#000);
+      border: solid 1px lightgray;
+      margin-top: 30px;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+}

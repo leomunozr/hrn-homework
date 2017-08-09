@@ -1,0 +1,34 @@
+@import './variables';
+@import './mixins';
+
+/* small desktops*/
+@media (max-width:1200px) {
+  .top {
+    padding: 20px;
+
+    &__menu {
+      display:none;
+    }
+    &__bars {
+      display: inline;
+    }
+  }
+  .second {
+    &__text {
+      width: 75vw;
+    }
+  }
+  .download {
+    &__left {
+      width: 50vw;
+
+      &__phones__img{
+        height: 20vw;
+      }
+    }
+    &__right {
+      padding-right: 10px;
+      width: 50vw;
+    }
+  }
+}
